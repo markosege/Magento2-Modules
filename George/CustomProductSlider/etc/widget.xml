@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget id="custom_product_slider" class="George\CustomProductSlider\Block\Widget\Slider">
+        <label>Custom Product Slider</label>
+        <description>Display a product slider on any page</description>
+        <parameters>
+            <parameter name="title" xsi:type="text" required="true" visible="true">
+                <label>Title</label>
+                <description>Slider title displayed above the slider</description>
+            </parameter>
+            <parameter name="max_visible" xsi:type="text" required="true" visible="true">
+                <label>Maximum Visible Slides</label>
+                <description>Number of slides visible at once</description>
+            </parameter>
+            <parameter name="enable_auto_slide" xsi:type="select" required="true" visible="true">
+                <label>Enable Auto-Sliding</label>
+                <options>
+                    <option name="yes" value="1" selected="true">
+                        <label>Yes</label>
+                    </option>
+                    <option name="no" value="0">
+                        <label>No</label>
+                    </option>
+                </options>
+            </parameter>
+            <parameter name="auto_slide_interval" xsi:type="text" required="true" visible="true">
+                <label>Auto-Slide Interval (ms)</label>
+                <description>Time between auto-slide transitions in milliseconds</description>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

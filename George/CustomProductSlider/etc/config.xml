@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <custom_product_slider>
+            <general>
+                <enabled>1</enabled>
+                <slider_title>Featured Products</slider_title>
+                <max_products>12</max_products>
+                <category_id></category_id>
+                <enable_auto_slide>1</enable_auto_slide>
+                <auto_slide_interval>5000</auto_slide_interval>
+                <enable_infinite_loop>1</enable_infinite_loop>
+            </general>
+        </custom_product_slider>
+    </default>
+</config>

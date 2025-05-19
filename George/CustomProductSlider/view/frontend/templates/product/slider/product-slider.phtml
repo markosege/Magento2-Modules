@@ -1,0 +1,27 @@
+<?php
+/**
+ * Custom Product Slider Template
+ *
+ * @var \George\CustomProductSlider\Block\ProductSlider $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Hyva\Theme\Model\ViewModelRegistry $viewModels
+ * @var \Hyva\Theme\ViewModel\Slider $sliderViewModel
+ */
+$sliderViewModel = $viewModels->require(\Hyva\Theme\ViewModel\Slider::class);
+if (!$block->isSliderEnabled()) {
+    return;
+}
+$items = $block->getProductCollection();
+$itemTemplate = 'Magento_Catalog::product/list/item.phtml';
+$containerTemplate = 'George_CustomProductSlider::product/slider/product-slider-container.phtml';
+?>
+
+<?= $sliderViewModel->getSliderForItems($itemTemplate, $items, $containerTemplate)
+    ->setData('title', $escaper->escapeHtml($block->getSliderTitle()))
+    ->setData('max_visible', 4)
+    ->setData('maybe_purged_tailwind_slide_item_classes', 'py-1 md:w-1/2 lg:w-1/3 xl:w-1/4')
+    ->setData('enable_auto_slide', $block->isAutoSlideEnabled())
+    ->setData('auto_slide_interval', $block->getAutoSlideInterval())
+    ->setData('enable_infinite_loop', $block->isInfiniteLoopEnabled())
+    ->toHtml();
+?>

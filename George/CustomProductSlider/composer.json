@@ -1,0 +1,21 @@
+{
+  "name": "george/module-custom-product-slider",
+  "version": "1.0.0",
+  "description": "Custom Product Slider for Magento 2 with Hyvä Theme",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "magento/module-catalog": "104.0.*"
+  },
+  "license": [
+    ""
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "George\\CustomProductSlider\\": ""
+    }
+  }
+}

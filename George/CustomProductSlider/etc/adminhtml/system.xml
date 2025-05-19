@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="george_module_tab" translate="label" sortOrder="1">
+            <label>George's Modules</label>
+        </tab>
+        <section id="custom_product_slider" translate="label" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Custom Product Slider</label>
+            <tab>george_module_tab</tab>
+            <resource>George_CustomProductSlider::config</resource>
+            <group id="general" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Slider</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="slider_title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Slider Title</label>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="max_products" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maximum Number of Products</label>
+                    <validate>validate-digits validate-greater-than-zero</validate>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="category_id" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Filter by Category</label>
+                    <source_model>George\CustomProductSlider\Model\Config\Source\Category</source_model>
+                    <comment>Select a category to filter products. Leave blank to show products from all categories.</comment>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="enable_auto_slide" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Auto-Sliding</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+                <field id="auto_slide_interval" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auto-Slide Interval (milliseconds)</label>
+                    <validate>validate-digits validate-greater-than-zero</validate>
+                    <comment>Enter the interval for auto-sliding in milliseconds (e.g., 5000 for 5 seconds).</comment>
+                    <depends><field id="enable_auto_slide">1</field></depends>
+                </field>
+                <field id="enable_infinite_loop" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Infinite Looping</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends><field id="enabled">1</field></depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

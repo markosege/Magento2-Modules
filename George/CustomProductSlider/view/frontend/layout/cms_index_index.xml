@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="hyva_product_slider"/>
+    <head>
+        <script src="George_CustomProductSlider::js/slider.js" defer="defer"/>
+        <css src="George_CustomProductSlider::css/custom_product_slider.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="George\CustomProductSlider\Block\ProductSlider"
+                   name="custom.product.slider"
+                   template="George_CustomProductSlider::product/slider/product-slider.phtml"
+                   before="-"/>
+        </referenceContainer>
+    </body>
+</page>
